@@ -34,12 +34,8 @@ class Base3DModel(nn.Module):
 
         self.fc = nn.Sequential()
         self.fc.add_module('fc1', nn.Linear(64 * f * 3 * 4 * 3, 1024))
-        self.fc.add_module('relu1', nn.ReLU(inplace=True))
-        self.fc.add_module('dp1', nn.Dropout(0.5))
-        self.fc.add_module('fc2', nn.Linear(1024, 1024))
-        self.fc.add_module('relu2', nn.ReLU(inplace=True))
-        self.fc.add_module('dp2', nn.Dropout(0.5))
-        self.fc.add_module('fc3', nn.Linear(1024, num_seg_classes))
+        self.fc.add_module('dp1', nn.Dropout(0.3))
+        self.fc.add_module('fc2', nn.Linear(1024, 3))
         
     def forward(self,x):
         z = self.conv(x)

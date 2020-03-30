@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from models import resnet
+import resnet
 
 
 def generate_model(sample_input_W, sample_input_H, sample_input_D, num_seg_classes=3, no_cuda=False, phase='train', pretrain_path=None, new_layer_names=['avgpool','fc']):

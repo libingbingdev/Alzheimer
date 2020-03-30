@@ -58,18 +58,10 @@ class MyDataset(Dataset):
         ''' 
         if self.shape == 2:
             [depth, height, width] = data.shape
-            if height > width:
-                new_h, new_w = int(self.input_H * height / width), self.input_H
-            else:
-                new_h, new_w = self.input_W, int(self.input_W * width / height)
-            scale = [depth, new_h, new_w]
+            scale = [self.input_D*1.0/depth, self.input_H*1.0/height, self.input_W*1.0/width]  
         else:
             [channel, depth, height, width] = data.shape
-            if height > width:
-                new_h, new_w = int(self.input_H * height / width), self.input_H
-            else:
-                new_h, new_w = self.input_W, int(self.input_W * width / height)
-            scale = [channel,depth, new_h, new_w]  
+            scale = [channel,self.input_D*1.0/depth, self.input_H*1.0/height, self.input_W*1.0/width]  
         data = ndimage.interpolation.zoom(data, scale, order=0)
 
         return data
