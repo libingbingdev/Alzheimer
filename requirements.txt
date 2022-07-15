@@ -38,7 +38,7 @@ dataclasses==0.6
 datashape==0.5.4
 decorator==4.3.0
 defusedxml==0.6.0
-distributed==1.21.8
+distributed==2021.10.0
 docutils==0.14
 entrypoints==0.2.3
 enum34==1.1.9
